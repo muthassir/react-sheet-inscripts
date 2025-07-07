@@ -10,8 +10,8 @@ const Excelsheet = () => {
 
   useEffect(() => {
     const generateData = () => {
-      const cellWidth = 104; // Approx cell width in px
-      const cellHeight = 28; // Approx cell height in px
+      const cellWidth = 104; 
+      const cellHeight = 28; 
 
       const columns = Math.floor(window.innerWidth / cellWidth);
       const rows = Math.floor(window.innerHeight / cellHeight);
@@ -20,16 +20,18 @@ const Excelsheet = () => {
         Array.from({ length: columns }, () => ({ value: "" }))
       );
 
-      // Optional: set some sample values
-      if (newData[0]?.[0]) newData[0][0].value = "Vanilla";
-      if (newData[0]?.[1]) newData[0][1].value = "Chocolate";
+      //  sample values
+      if (newData[0]?.[0]) newData[0][0].value = "launch soc..";
+      if (newData[0]?.[1]) newData[0][1].value = "update pre..";
+      
+
 
       setData(newData);
     };
 
     generateData();
 
-    // Optional: regenerate on resize
+    // resize
     window.addEventListener("resize", generateData);
     return () => window.removeEventListener("resize", generateData);
   }, []);
